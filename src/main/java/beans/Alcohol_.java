@@ -10,17 +10,14 @@ public class Alcohol_ {
      private String level_;
      private String country_;
 
-    public Alcohol_() {
-    }
 
-    public Alcohol_(long id_, String name_, String provider_, String level_, String country_) {
-        this.id_ = id_;
-        this.name_ = name_;
-        this.provider_ = provider_;
-        this.level_ = level_;
-        this.country_ = country_;
+    public Alcohol_ (Builder alcoholBuilder_){
+        this.name_=alcoholBuilder_.name_;
+        this.provider_ = alcoholBuilder_.provider_;
+        this.level_ = alcoholBuilder_.level_;
+        this.country_ = alcoholBuilder_.country_;
+        this.id_ = alcoholBuilder_.id_;
     }
-
 
     public long getId_() {
         return id_;
@@ -62,5 +59,37 @@ public class Alcohol_ {
         this.country_ = country_;
     }
 
+    public static final class Builder {
+        private long id_;
+        private String name_;
+        private String provider_;
+        private String level_;
+        private String country_;
+
+
+        public Builder (String name, String level){
+            this.name_ = name;
+            this.level_ = level;
+        }
+
+        public Builder id (long id){
+            this.id_ = id;
+            return this;
+        }
+
+        public Builder provider (String provider) {
+            this.provider_ = provider;
+            return this;
+        }
+
+        public Builder country (String country) {
+            this.country_ = country;
+            return this;
+        }
+
+        public Alcohol_ build() {
+            return new Alcohol_(this);
+        }
+    }
 
 }
