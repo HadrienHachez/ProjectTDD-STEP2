@@ -1,7 +1,7 @@
 
 /**
  * Enumeration of differents alcohol type 
- * @author @author Ping Tian-sen
+ * Created by Team 4 on 01/12/2017.
  */
 public enum Product_ {
 
