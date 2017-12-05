@@ -1,7 +1,8 @@
 package beans;
 
 /**
- * Created by Salim on 01/12/2017.
+ * Class that create an Alcohol Object with the Builder design. 
+ * Created by Team 4 on 01/12/2017.
  */
 public class Alcohol_ {
      private long id_;
@@ -9,6 +10,7 @@ public class Alcohol_ {
      private String provider_;
      private String level_;
      private String country_;
+     private int year_;
 
 
     public Alcohol_ (Builder_ alcoholBuilder_){
@@ -17,6 +19,7 @@ public class Alcohol_ {
         this.level_ = alcoholBuilder_.level_;
         this.country_ = alcoholBuilder_.country_;
         this.id_ = alcoholBuilder_.id_;
+        this.year_ = alcoholBuilder_.year_;
     }
 
     public long getId_() {
@@ -65,6 +68,7 @@ public class Alcohol_ {
         private String provider_;
         private String level_;
         private String country_;
+        private int year_;
 
 
         public Builder_ (String name, String level){
@@ -87,6 +91,11 @@ public class Alcohol_ {
             return this;
         }
 
+        public Builder_ year_(int year) {
+            this.year_ = year;
+            return this;
+        }
+        
         public Alcohol_ build_() {
             return new Alcohol_(this);
         }
