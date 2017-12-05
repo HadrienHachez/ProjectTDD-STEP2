@@ -1,7 +1,8 @@
 package beans;
 
 /**
- * Created by Salim on 01/12/2017.
+ * Class that create an Alcohol Object with the Builder design. 
+ * Created by Team 4 on 01/12/2017.
  */
 public class Alcohol_ {
      private long id_;
@@ -9,18 +10,17 @@ public class Alcohol_ {
      private String provider_;
      private String level_;
      private String country_;
+     private int year_;
 
-    public Alcohol_() {
+
+    public Alcohol_ (Builder_ alcoholBuilder_){
+        this.name_=alcoholBuilder_.name_;
+        this.provider_ = alcoholBuilder_.provider_;
+        this.level_ = alcoholBuilder_.level_;
+        this.country_ = alcoholBuilder_.country_;
+        this.id_ = alcoholBuilder_.id_;
+        this.year_ = alcoholBuilder_.year_;
     }
-
-    public Alcohol_(long id_, String name_, String provider_, String level_, String country_) {
-        this.id_ = id_;
-        this.name_ = name_;
-        this.provider_ = provider_;
-        this.level_ = level_;
-        this.country_ = country_;
-    }
-
 
     public long getId_() {
         return id_;
@@ -62,5 +62,43 @@ public class Alcohol_ {
         this.country_ = country_;
     }
 
+    public static final class Builder_ {
+        private long id_;
+        private String name_;
+        private String provider_;
+        private String level_;
+        private String country_;
+        private int year_;
+
+
+        public Builder_ (String name, String level){
+            this.name_ = name;
+            this.level_ = level;
+        }
+
+        public Builder_ id_(long id){
+            this.id_ = id;
+            return this;
+        }
+
+        public Builder_ provider_(String provider) {
+            this.provider_ = provider;
+            return this;
+        }
+
+        public Builder_ country_(String country) {
+            this.country_ = country;
+            return this;
+        }
+
+        public Builder_ year_(int year) {
+            this.year_ = year;
+            return this;
+        }
+        
+        public Alcohol_ build_() {
+            return new Alcohol_(this);
+        }
+    }
 
 }
