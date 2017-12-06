@@ -1,9 +1,6 @@
-import beans.Alcohol_;
+
 import beans.Product_;
 
-import javax.management.openmbean.ArrayType;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.*;
 
 public class Display_ {
