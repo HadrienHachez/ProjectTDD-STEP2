@@ -1,4 +1,5 @@
 
+import beans.Alcohol_;
 import beans.Product_;
 
 import java.util.*;
@@ -6,13 +7,6 @@ import java.util.*;
 public class Display_ {
 
     public static void display_() {
-        Product_ type_ = null;
-        int typeInt_ = 0;
-        String country_ = null;
-        String provider_ = null;
-        String level_ = null;
-        String name_ = null;
-        int year_ = 0;
         Scanner sc = new Scanner(System.in);
         int operation_= 0;
 
@@ -28,80 +22,94 @@ public class Display_ {
                     + "ou hors des limites int.");
         }
 
+        switch (operation_) {
+            case 1: // ajout
+                break;
+
+            case 2: // recherche
+                recherche_(sc);
+                break;
+
+            case 3: // modification
+                break;
+
+            case 4: // suppression
+                break;
+
+            default:
+                return;
+        }
+
+
         /*************************************************************************************************************/
         /*Zone de code : Partie Recherche                                                                            */
         /*************************************************************************************************************/
 
         //SEPARER LE CODE EN FONCTION QD FINI
+    }
 
-        HashMap<String, String> hm_ = new HashMap();
-        Iterator it_ = hm_.entrySet().iterator();
+    private static void recherche_(Scanner sc) {
+        Product_ type_ = null;
+        int typeInt_ = 0;
+        String country_ = null;
+        String provider_ = null;
+        String level_ = null;
+        String name_ = null;
+        int year_ = 0;
 
-        if(operation_ == 2) {
-            System.out.println("Recherche.");
-            System.out.println("Si l'élément n'est pas recherché laisser vide.");
-            System.out.println("_________________________________________________________");
+        System.out.println("Recherche.");
+        System.out.println("Si l'élément n'est pas recherché laisser vide.");
+        System.out.println("_________________________________________________________");
 
-            System.out.println("Veuillez saisir : ");
+        System.out.println("Veuillez saisir : ");
 
-            try {
-                System.out.println("> Type [BEER=1] [WINE=2] [LIQUOR=3]    : ");
-                typeInt_ = sc.nextInt();
-            } catch (InputMismatchException ime) {
-                System.out.println("Valeur saisie non numérique\n"
-                        + "ou hors des limites int.");
-            }
-
-            System.out.println("> Country  : ");
-            country_ = sc.nextLine();
-            System.out.println("> Provider : ");
-            provider_ = sc.nextLine();
-            System.out.println("> Level    : ");
-            level_ = sc.nextLine();
-            System.out.println("> Name     : ");
-            name_ = sc.nextLine();
-
-            try {
-                System.out.println("> Year     : ");
-                year_ = sc.nextInt();
-            } catch (InputMismatchException ime) {
-                System.out.println("Valeur saisie non numérique\n"
-                        + "ou hors des limites int.");
-            }
-
-            if (typeInt_ != 0) {
-                if (typeInt_ == 1) {
-                    type_ = type_.BEER;
-                } else if (typeInt_ == 2) {
-                    type_ = type_.WINE;
-                } else if (typeInt_ == 3) {
-                    type_ = type_.LIQUOR;
-                } else {
-                    System.err.println("! Erreur de choix de chiffre !");
-                }
-                //A transfo d'abord en string
-            }
-            if (country_ != null) {
-                hm_.put("country_", country_);
-            }
-            if (provider_ != null) {
-                hm_.put("provider_", provider_);
-            }
-            if (level_ != null) {
-                hm_.put("level_", level_);
-            }
-            if (name_ != null) {
-                hm_.put("name_", name_);
-            }
-            if (year_ != 0) {
-                hm_.put("year_", Integer.toString(year_));
-            }
-
-            while (it_.hasNext()) {
-                Map.Entry data = (Map.Entry)it_.next();
-                //CREER L OBJET ALCOHOL VIA BUILDER
-            }
-
+        try {
+            System.out.println("> Type [BEER=1] [WINE=2] [LIQUOR=3]    : ");
+            typeInt_ = sc.nextInt();
+        } catch (InputMismatchException ime) {
+            System.out.println("Valeur saisie non numérique\n"
+                    + "ou hors des limites int.");
         }
+
+        System.out.println("> Country  : ");
+        country_ = sc.nextLine();
+        System.out.println("> Provider : ");
+        provider_ = sc.nextLine();
+        System.out.println("> Level    : ");
+        level_ = sc.nextLine();
+        System.out.println("> Name     : ");
+        name_ = sc.nextLine();
+
+        try {
+            System.out.println("> Year     : ");
+            year_ = sc.nextInt();
+        } catch (InputMismatchException ime) {
+            System.out.println("Valeur saisie non numérique\n"
+                    + "ou hors des limites int.");
+        }
+
+        if (typeInt_ != 0) {
+            if (typeInt_ == 1) {
+                type_ = type_.BEER;
+            } else if (typeInt_ == 2) {
+                type_ = type_.WINE;
+            } else if (typeInt_ == 3) {
+                type_ = type_.LIQUOR;
+            } else {
+                System.err.println("! Erreur de choix de chiffre !");
+            }
+            //A transfo d'abord en string
+        }
+
+        Alcohol_ alcohol_ = new Alcohol_.Builder_(name_, level_).build_();
+
+        if (country_ != null)
+            alcohol_.setCountry_(country_);
+        if (provider_ != null)
+            alcohol_.setProvider_(provider_);
+        if (year_ != 0)
+            alcohol_.setYear_(year_);
+
+        System.out.println("");
     }
 }

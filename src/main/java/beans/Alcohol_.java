@@ -12,7 +12,6 @@ public class Alcohol_ {
      private String country_;
      private int year_;
 
-
     public Alcohol_ (Builder_ alcoholBuilder_){
         this.name_=alcoholBuilder_.name_;
         this.provider_ = alcoholBuilder_.provider_;
@@ -61,6 +60,7 @@ public class Alcohol_ {
     public void setCountry_(String country_) {
         this.country_ = country_;
     }
+
     public int getYear_() {
         return year_;
     }
@@ -68,6 +68,7 @@ public class Alcohol_ {
     public void setYear_(int year_) {
         this.year_ = year_;
     }
+
     /** Start of the builder class**/
     public static final class Builder_ {
         private long id_;
