@@ -5,9 +5,7 @@ import org.junit.After;
 /** 
 * Alcohol_ Tester. 
 * 
-* @author <Authors name> 
-* @since <pre>d�c. 5, 2017</pre> 
-* @version 1.0 
+* @author <Team 4>
 */ 
 public class Alcohol_Test { 
 

@@ -3,7 +3,7 @@ package beans;
 import com.mongodb.BasicDBObject;
 
 /**
- * Class that create an Alcohol Object with the Builder design. 
+ * Class that create an Alcohol Object with the Builder design pattern.
  * Created by Team 4 on 01/12/2017.
  */
 public class Alcohol_  extends BasicDBObject {
@@ -63,7 +63,14 @@ public class Alcohol_  extends BasicDBObject {
     public void setCountry_(String country_) {
         this.country_ = country_;
     }
+    public int getYear_() {
+        return year_;
+    }
 
+    public void setYear_(int year_) {
+        this.year_ = year_;
+    }
+    /** Start of the builder class**/
     public static final class Builder_ {
         private long id_;
         private String name_;
@@ -71,7 +78,6 @@ public class Alcohol_  extends BasicDBObject {
         private String level_;
         private String country_;
         private int year_;
-
 
         public Builder_ (String name, String level){
             this.name_ = name;

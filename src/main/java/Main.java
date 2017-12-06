@@ -5,8 +5,8 @@
 public class Main {
     public static void main(String[] args) {
 
-        Display_ disp = new Display_();
-        disp.display_();
+        Display_ display_ = new Display_();
+        display_.display_();
 
     }
 }
