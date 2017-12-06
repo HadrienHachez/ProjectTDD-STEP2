@@ -1,4 +1,3 @@
-package beans;
 
 /**
  * Enumeration of differents alcohol type 
@@ -6,6 +5,6 @@ package beans;
  */
 public enum Product_ {
 
-    BEER , WINE, LIQUOR;
+    BEER , WINE, LIQUOR ;
               
 }
