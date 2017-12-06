@@ -1,12 +1,10 @@
 package beans;
 
-import com.mongodb.BasicDBObject;
-
 /**
  * Class that create an Alcohol Object with the Builder design pattern.
  * Created by Team 4 on 01/12/2017.
  */
-public class Alcohol_  extends BasicDBObject {
+public class Alcohol_ {
      private long id_;
      private String name_;
      private String provider_;
