@@ -1,7 +1,6 @@
 package databasehelper;
 
 import beans.Alcohol_;
-import com.mongodb.BasicDBObject;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoCollection;
@@ -19,11 +18,11 @@ public class DBManagement_ {
     private MongoClient mongoClient_;
     private MongoClientURI mongoUri_;
     private MongoDatabase mongoDatabase_;
-    private static DBManagement_ ourInstance = new DBManagement_();
+    private static DBManagement_ ourInstance_ = new DBManagement_();
     private MongoCollection<Document> ourCollection_;
 
     public static DBManagement_ getInstance() {
-        return ourInstance;
+        return ourInstance_;
     }
 
     private DBManagement_()  {
@@ -38,7 +37,7 @@ public class DBManagement_ {
     }
 
     public DBManagement_ initDatabase_ (){
-        return ourInstance;
+        return ourInstance_;
     }
 
 

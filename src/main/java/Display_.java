@@ -80,7 +80,6 @@ public class Display_ {
                     System.err.println("! Erreur de choix de chiffre !");
                 }
                 //A transfo d'abord en string
-                //hm_.put("type_", type_);
             }
             if (country_ != null) {
                 hm_.put("country_", country_);
@@ -98,46 +97,11 @@ public class Display_ {
                 hm_.put("year_", Integer.toString(year_));
             }
 
-            //for(int i=0; i<hm_.size(); i++){}
-
-
             while (it_.hasNext()) {
                 Map.Entry data = (Map.Entry)it_.next();
                 //CREER L OBJET ALCOHOL VIA BUILDER
-                //System.out.println(data.getKey() + " = " + data.getValue());
             }
 
-
-            //System.out.println("Vous avez saisi : " + str);
-            //System.out.println("La recherche donne : ");
-            //ArrayList wordsList = cutSearch(str);
         }
     }
-
-
-    //CODE N'EST PLUS UTILE MAIS POURRAIS SERVICE
-    //Méthode pour couper via les espaces une phrase en mot
-public static ArrayList cutSearch(String search) {
-    ArrayList words = new ArrayList();
-    int i=0;
-
-    if (search == null) {
-        System.out.println("null");
-        //return null;
-    } else {
-        StringTokenizer st = new StringTokenizer(search);
-        while (st.hasMoreTokens()) {
-            String stt = st.nextToken();
-            words.add(stt);
-            System.out.println(stt);
-        }
-        //System.out.println("VOILAAAA : ");
-        //for(int j=0; j<words.size(); j++){
-        //    System.out.println(words.get(j).toString());
-        //}
-    }
-    return words;
-}
-
-    //return words;
 }
