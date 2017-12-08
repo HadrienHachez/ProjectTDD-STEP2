@@ -31,6 +31,7 @@ public class Display_ {
 
         switch (operation_) {
             case 1: // affichage
+                affiche_(sc_);
                 break;
             case 2: // ajout
                 break;
@@ -54,7 +55,7 @@ public class Display_ {
     private static void affiche_(Scanner sc_) {
         System.out.println("MENU AFFICHE");
         for (int i = 0; i < 5; i++) {
-            System.out.println("TG\n");
+            System.out.println("TG");
         }
     }
 
@@ -98,8 +99,11 @@ public class Display_ {
         String name_     = "";
         int year_        = 0;
 
+        System.out.println("> Type [BEER=1] [WINE=2] [LIQUOR=3]    : ");
+        typeInt_    = input_check(sc_,0,3,
+                "Valeur saisie non numérique\n ou hors des limites");
         try {
-            System.out.println("> Type [BEER=1] [WINE=2] [LIQUOR=3]    : ");
+
             typeInt_ = sc_.nextInt();
         } catch (InputMismatchException ime) {
             System.out.println("Valeur saisie non numérique\n"
