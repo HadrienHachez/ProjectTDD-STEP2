@@ -8,19 +8,22 @@ import java.util.*;
 public class Display_ {
 
     /**
-     * CLI interface of the project. This function display the
-     * menu and direct the user to the selected routine.
+     * CLI interface of the project.
      */
     public static void display_() {
         Scanner sc_ = new Scanner(System.in);
         menu_(sc_);
     }
 
+    /**
+     * This function display the menu and direct the user to the selected routine.
+     * @param sc_ Scanner for stdin
+     */
     private static void menu_(Scanner sc_){
-        int operation_  = 0;
+        int operation_ = 0;
         System.out.println("Bienvenue dans Votre Cave à Vin \n" +
                 "MENU : [Afficher=1[Ajout=2][Recherche=3][Modification=4][Suppression=5]");
-        operation_      = input_check(sc_,1,5,null);
+        operation_ = input_check(sc_,1,5,null);
         switch (operation_) {
             case 1: // affichage
                 break;
@@ -141,7 +144,7 @@ public class Display_ {
     }
 
     /**
-     *
+     * Helper to retrieve an integer from stdin between a lower and upper bound.
      * @param sc Scanner for stdin
      * @param lower lowest possible value
      * @param upper hight possible value
