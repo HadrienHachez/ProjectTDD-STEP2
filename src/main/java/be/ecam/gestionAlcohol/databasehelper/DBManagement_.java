@@ -10,7 +10,6 @@ import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 
 /**
- * Created by Team4 on 01/12/2017.
  * implementation du design pattern Singeleton pour l'instance de base de donnée.
  */
 

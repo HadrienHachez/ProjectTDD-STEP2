@@ -39,6 +39,7 @@ public class Display_ {
                 menu_(sc_);
         }
     }
+
     /**
      * @param sc_ Scanner for stdin
      */
@@ -48,6 +49,7 @@ public class Display_ {
             System.out.println("TG\n");
         }
     }
+
     /**
      * @param sc_ Scanner for stdin
      */
@@ -59,19 +61,20 @@ public class Display_ {
 
         System.out.println(alcohol_);
     }
+
     /**
      * @param sc_ Scanner for stdin
      */
     private static void modification_(Scanner sc_) {
         //TODO implémenter
     }
+
     /**
      * @param sc_ Scanner for stdin
      */
     private static void suppression_(Scanner sc_) {
         //TODO implémenter
     }
-
 
     /**
      *
@@ -136,6 +139,15 @@ public class Display_ {
 
         return alcohol_;
     }
+
+    /**
+     *
+     * @param sc Scanner for stdin
+     * @param lower lowest possible value
+     * @param upper hight possible value
+     * @param errorStr the string to disply in case of wrong input, maybe null to display the default notice
+     * @return the input read from stdin
+     */
     public static int input_check(Scanner sc, int lower, int upper, String errorStr) {
         int iinput = -1;
         String notice = errorStr != null ? errorStr : "Entrée invalide, daignez réessayer:";

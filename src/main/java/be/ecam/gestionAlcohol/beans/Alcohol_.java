@@ -2,8 +2,8 @@ package be.ecam.gestionAlcohol.beans;
 
 /**
  * Class that create an Alcohol Object with the Builder design pattern.
- * Created by Team 4 on 01/12/2017.
  */
+
 public class Alcohol_ {
      private long id_;
      private String name_;
