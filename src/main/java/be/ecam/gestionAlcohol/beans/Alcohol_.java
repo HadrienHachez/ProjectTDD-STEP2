@@ -13,12 +13,12 @@ public class Alcohol_ {
      private int year_;
 
     public Alcohol_ (Builder_ alcoholBuilder_){
-        this.name_=alcoholBuilder_.name_;
+        this.id_       = alcoholBuilder_.id_;
+        this.name_     = alcoholBuilder_.name_;
+        this.year_     = alcoholBuilder_.year_;
+        this.level_    = alcoholBuilder_.level_;
+        this.country_  = alcoholBuilder_.country_;
         this.provider_ = alcoholBuilder_.provider_;
-        this.level_ = alcoholBuilder_.level_;
-        this.country_ = alcoholBuilder_.country_;
-        this.id_ = alcoholBuilder_.id_;
-        this.year_ = alcoholBuilder_.year_;
     }
 
     public long getId_() {
@@ -82,7 +82,7 @@ public class Alcohol_ {
         return sb.toString();
     }
 
-    /** Start of the builder class**/
+    // Start of the builder class
     public static final class Builder_ {
         private long id_;
         private String name_;
@@ -91,12 +91,12 @@ public class Alcohol_ {
         private String country_;
         private int year_;
 
-        public Builder_ (String name, String level){
+        public Builder_(String name, String level) {
             this.name_ = name;
             this.level_ = level;
         }
 
-        public Builder_ id_(long id){
+        public Builder_ id_(long id) {
             this.id_ = id;
             return this;
         }
