@@ -7,19 +7,16 @@ import java.util.*;
 public class Display_ {
 
     public static void display_() {
-        Scanner sc = new Scanner(System.in);
+        Scanner sc_ = new Scanner(System.in);
         int operation_= 0;
 
         System.out.println("Bienvenue dans La Cave à Vin");
         System.out.println("Vous voulez faire : [Ajout=1][Recherche=2][Modification=3][Suppression=4]");
 
-        try{
-            operation_ = sc.nextInt();
-        }
-        catch(InputMismatchException ime)
-        {
-            System.out.println("Valeur saisie non numérique\n"
-                    + "ou hors des limites int.");
+        try {
+            operation_ = sc_.nextInt();
+        } catch(InputMismatchException ime) {
+            System.out.println("Valeur saisie non numérique ou hors des limites int.");
         }
 
         switch (operation_) {
@@ -27,10 +24,11 @@ public class Display_ {
                 break;
 
             case 2: // recherche
-                recherche_(sc);
+                recherche_(sc_);
                 break;
 
             case 3: // modification
+                modification_(sc_);
                 break;
 
             case 4: // suppression
@@ -48,7 +46,7 @@ public class Display_ {
         //SEPARER LE CODE EN FONCTION QD FINI
     }
 
-    private static void recherche_(Scanner sc) {
+    private static void recherche_(Scanner sc_) {
         Product_ type_ = null;
         int typeInt_ = 0;
         String country_ = null;
@@ -65,24 +63,24 @@ public class Display_ {
 
         try {
             System.out.println("> Type [BEER=1] [WINE=2] [LIQUOR=3]    : ");
-            typeInt_ = sc.nextInt();
+            typeInt_ = sc_.nextInt();
         } catch (InputMismatchException ime) {
             System.out.println("Valeur saisie non numérique\n"
                     + "ou hors des limites int.");
         }
 
         System.out.println("> Country  : ");
-        country_ = sc.nextLine();
+        country_ = sc_.nextLine();
         System.out.println("> Provider : ");
-        provider_ = sc.nextLine();
+        provider_ = sc_.nextLine();
         System.out.println("> Level    : ");
-        level_ = sc.nextLine();
+        level_ = sc_.nextLine();
         System.out.println("> Name     : ");
-        name_ = sc.nextLine();
+        name_ = sc_.nextLine();
 
         try {
             System.out.println("> Year     : ");
-            year_ = sc.nextInt();
+            year_ = sc_.nextInt();
         } catch (InputMismatchException ime) {
             System.out.println("Valeur saisie non numérique\n"
                     + "ou hors des limites int.");
@@ -111,5 +109,9 @@ public class Display_ {
             alcohol_.setYear_(year_);
 
         System.out.println("");
+    }
+
+    private static void modification_(Scanner sc_) {
+        //TODO
     }
 }
