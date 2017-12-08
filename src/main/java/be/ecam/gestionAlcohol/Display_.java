@@ -48,22 +48,49 @@ public class Display_ {
 
     /**
      *
-     * @param sc_
+     * @param sc_ Scanner for stdin
      */
     private static void recherche_(Scanner sc_) {
-        Product_ type_ = null;
-        int typeInt_ = 0;
-        String country_ = null;
-        String provider_ = null;
-        String level_ = null;
-        String name_ = null;
-        int year_ = 0;
-
         System.out.println("Recherche.");
         System.out.println("Si l'élément n'est pas recherché laisser vide.");
         System.out.println("_________________________________________________________");
 
         System.out.println("Veuillez saisir : ");
+
+    }
+
+
+    /**
+     *
+     * @param sc_ Scanner for stdin
+     */
+    private static void modification_(Scanner sc_) {
+        //TODO implémenter
+    }
+
+
+    /**
+     *
+     * @param sc_ Scanner for stdin
+     */
+    private static void suppression_(Scanner sc_) {
+        //TODO implémenter
+    }
+
+
+    /**
+     *
+     * @param sc_ Scanner for stdin
+     * @return the alcohol instance created
+     */
+    private static Alcohol_ createAlcohol(Scanner sc_) {
+        Product_ type_   = null;
+        int typeInt_     = 0;
+        String country_  = "";
+        String provider_ = "";
+        String level_    = "";
+        String name_     = "";
+        int year_        = 0;
 
         try {
             System.out.println("> Type [BEER=1] [WINE=2] [LIQUOR=3]    : ");
@@ -100,9 +127,9 @@ public class Display_ {
             } else {
                 System.err.println("! Erreur de choix de chiffre !");
             }
-            //A transfo d'abord en string
         }
 
+        // create the object
         Alcohol_ alcohol_ = new Alcohol_.Builder_(name_, level_).build_();
 
         if (country_ != null)
@@ -112,24 +139,6 @@ public class Display_ {
         if (year_ != 0)
             alcohol_.setYear_(year_);
 
-        System.out.println("");
-    }
-
-
-    /**
-     *
-     * @param sc_
-     */
-    private static void modification_(Scanner sc_) {
-        //TODO implémenter
-    }
-
-
-    /**
-     *
-     * @param sc_
-     */
-    private static void suppression_(Scanner sc_) {
-        //TODO implémenter
+        return alcohol_;
     }
 }
