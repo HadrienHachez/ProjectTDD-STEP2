@@ -13,64 +13,56 @@ public class Display_ {
      */
     public static void display_() {
         Scanner sc_ = new Scanner(System.in);
-        int operation_= 0;
-
-        System.out.println("Bienvenue dans La Cave à Vin");
-        System.out.println("Vous voulez faire : [Ajout=1][Recherche=2][Modification=3][Suppression=4]");
-
-        try {
-            operation_ = sc_.nextInt();
-        } catch(InputMismatchException ime) {
-            System.out.println("Valeur saisie non numérique ou hors des limites int.");
-        }
-
-        switch (operation_) {
-            case 1: // ajout
-                break;
-
-            case 2: // recherche
-                recherche_(sc_);
-                break;
-
-            case 3: // modification
-                modification_(sc_);
-                break;
-
-            case 4: // suppression
-                suppression_(sc_);
-                break;
-
-            default:
-                return;
-        }
+        menu_(sc_);
     }
 
-
+    private static void menu_(Scanner sc_){
+        int operation_  = 0;
+        System.out.println("Bienvenue dans Votre Cave à Vin \n" +
+                "MENU : [Afficher=1[Ajout=2][Recherche=3][Modification=4][Suppression=5]");
+        operation_      = input_check(sc_,1,5,null);
+        switch (operation_) {
+            case 1: // affichage
+                break;
+            case 2: // ajout
+                break;
+            case 3: // recherche
+                recherche_(sc_);
+                break;
+            case 4: // modification
+                modification_(sc_);
+                break;
+            case 5: // suppression
+                suppression_(sc_);
+                break;
+            default:
+                menu_(sc_);
+        }
+    }
     /**
-     *
+     * @param sc_ Scanner for stdin
+     */
+    private static void affiche_(Scanner sc_) {
+        System.out.println("MENU AFFICHE");
+        for (int i=0;i<5;i++){
+            System.out.println("TG\n");
+        }
+    }
+    /**
      * @param sc_ Scanner for stdin
      */
     private static void recherche_(Scanner sc_) {
-        System.out.println("Recherche.");
-        System.out.println("Si l'élément n'est pas recherché laisser vide.");
-        System.out.println("_________________________________________________________");
-
-        System.out.println("Veuillez saisir : ");
-
+        System.out.println("MENU RECHERCHE\n"+
+                "Si l'élément n'est pas recherché laisser vide.\n"+
+                "Veuillez saisir : ");
     }
-
-
     /**
-     *
      * @param sc_ Scanner for stdin
      */
     private static void modification_(Scanner sc_) {
         //TODO implémenter
     }
-
-
     /**
-     *
      * @param sc_ Scanner for stdin
      */
     private static void suppression_(Scanner sc_) {
@@ -140,5 +132,24 @@ public class Display_ {
             alcohol_.setYear_(year_);
 
         return alcohol_;
+    }
+    public static int input_check(Scanner sc, int lower, int upper, String errorStr) {
+        int iinput = -1;
+        String notice = errorStr != null ? errorStr : "Entrée invalide, daignez réessayer:";
+
+        while (true) {
+            try {
+                iinput = Integer.parseInt(sc.nextLine());
+                while (iinput < lower || iinput > upper) {
+                    System.err.print(notice);
+                    iinput = Integer.parseInt(sc.nextLine());
+                }
+                break;
+            } catch(NumberFormatException e) {
+                System.err.println(notice);
+            }
+        }
+
+        return iinput;
     }
 }
