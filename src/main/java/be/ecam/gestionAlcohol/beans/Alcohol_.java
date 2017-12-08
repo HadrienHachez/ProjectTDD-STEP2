@@ -11,11 +11,13 @@ public class Alcohol_ {
      private String level_;
      private String country_;
      private int year_;
+     private Product_ type_;
 
     public Alcohol_ (Builder_ alcoholBuilder_){
         this.id_       = alcoholBuilder_.id_;
         this.name_     = alcoholBuilder_.name_;
         this.year_     = alcoholBuilder_.year_;
+        this.type_     = alcoholBuilder_.type_;
         this.level_    = alcoholBuilder_.level_;
         this.country_  = alcoholBuilder_.country_;
         this.provider_ = alcoholBuilder_.provider_;
@@ -69,6 +71,14 @@ public class Alcohol_ {
         this.year_ = year_;
     }
 
+    public Product_ getType_() {
+        return type_;
+    }
+
+    public void setType_(Product_ type_) {
+        this.type_ = type_;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -84,38 +94,19 @@ public class Alcohol_ {
 
     // Start of the builder class
     public static final class Builder_ {
-        private long id_;
-        private String name_;
-        private String provider_;
-        private String level_;
-        private String country_;
-        private int year_;
+        private long id_         = 0;
+        private int year_        = 0;
+        private String name_     = "Sans nom";
+        private String provider_ = "Sans brasserie";
+        private String level_    = "Sans alcohol";
+        private String country_  = "Sans pays";
+        private Product_ type_   = Product_.BEER;
 
-        public Builder_(String name, String level) {
-            this.name_ = name;
-            this.level_ = level;
+        public Builder_(String name_, String level_) {
+            this.name_ = name_;
+            this.level_ = level_;
         }
 
-        public Builder_ id_(long id) {
-            this.id_ = id;
-            return this;
-        }
-
-        public Builder_ provider_(String provider) {
-            this.provider_ = provider;
-            return this;
-        }
-
-        public Builder_ country_(String country) {
-            this.country_ = country;
-            return this;
-        }
-
-        public Builder_ year_(int year) {
-            this.year_ = year;
-            return this;
-        }
-        
         public Alcohol_ build_() {
             return new Alcohol_(this);
         }

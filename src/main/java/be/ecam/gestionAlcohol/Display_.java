@@ -121,7 +121,6 @@ public class Display_ {
         typeInt_    = input_check(ctx_.sc_,0,3,
                 "Valeur saisie non numérique\n ou hors des limites");
         try {
-
             typeInt_ = ctx_.sc_.nextInt();
             System.out.println("> Type [BEER=1] [WINE=2] [LIQUOR=3]    : ");
             typeInt_ = ctx_.sc_.nextInt();
@@ -168,6 +167,8 @@ public class Display_ {
             alcohol_.setProvider_(provider_);
         if (year_ != 0)
             alcohol_.setYear_(year_);
+        if (typeInt_ != 0)
+            alcohol_.setType_(type_);
 
         return alcohol_;
     }
