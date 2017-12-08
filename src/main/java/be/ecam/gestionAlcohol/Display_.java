@@ -118,16 +118,7 @@ public class Display_ {
         int year_        = 0;
 
         System.out.println("> Type [BEER=1] [WINE=2] [LIQUOR=3]    : ");
-        typeInt_    = input_check(ctx_.sc_,0,3,
-                "Valeur saisie non numérique\n ou hors des limites");
-        try {
-            typeInt_ = ctx_.sc_.nextInt();
-            System.out.println("> Type [BEER=1] [WINE=2] [LIQUOR=3]    : ");
-            typeInt_ = ctx_.sc_.nextInt();
-        } catch (InputMismatchException ime) {
-            System.out.println("Valeur saisie non numérique\n"
-                    + "ou hors des limites int.");
-        }
+        typeInt_ = input_check(ctx_.sc_,0,3,null);
 
         System.out.println("> Country  : ");
         country_ = ctx_.sc_.nextLine();
@@ -138,15 +129,10 @@ public class Display_ {
         System.out.println("> Name     : ");
         name_ = ctx_.sc_.nextLine();
 
-        try {
-            System.out.println("> Year     : ");
-            year_ = ctx_.sc_.nextInt();
-        } catch (InputMismatchException ime) {
-            System.out.println("Valeur saisie non numérique\n"
-                    + "ou hors des limites int.");
-        }
+        System.out.println("> Year     : ");
+        year_ = input_check(ctx_.sc_,0,3000,null);
 
-        if (typeInt_ != 0) {
+        if (typeInt_ != -1) {
             if (typeInt_ == 1) {
                 type_ = type_.BEER;
             } else if (typeInt_ == 2) {
@@ -154,7 +140,7 @@ public class Display_ {
             } else if (typeInt_ == 3) {
                 type_ = type_.LIQUOR;
             } else {
-                System.err.println("! Erreur de choix de chiffre !");
+                System.err.println("Erreur de choix de chiffre !");
             }
         }
 
