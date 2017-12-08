@@ -15,7 +15,7 @@ jacocoTestReport {
     }
 }
 
-sourceCompatibility = 1.5
+sourceCompatibility = 1.7
 
 repositories {
     mavenCentral()

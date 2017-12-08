@@ -1,6 +1,6 @@
-package databasehelper;
+package be.ecam.gestionAlcohol.databasehelper;
 
-import beans.Alcohol_;
+import be.ecam.gestionAlcohol.beans.Alcohol_;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoCollection;

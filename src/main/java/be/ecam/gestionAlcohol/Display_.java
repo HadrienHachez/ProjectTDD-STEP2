@@ -1,11 +1,16 @@
+package be.ecam.gestionAlcohol;
 
-import beans.Alcohol_;
-import beans.Product_;
+import be.ecam.gestionAlcohol.beans.Alcohol_;
+import be.ecam.gestionAlcohol.beans.Product_;
 
 import java.util.*;
 
 public class Display_ {
 
+    /**
+     * CLI interface of the project. This function display the
+     * menu and direct the user to the selected routine.
+     */
     public static void display_() {
         Scanner sc_ = new Scanner(System.in);
         int operation_= 0;
@@ -32,20 +37,19 @@ public class Display_ {
                 break;
 
             case 4: // suppression
+                suppression_(sc_);
                 break;
 
             default:
                 return;
         }
-
-
-        /*************************************************************************************************************/
-        /*Zone de code : Partie Recherche                                                                            */
-        /*************************************************************************************************************/
-
-        //SEPARER LE CODE EN FONCTION QD FINI
     }
 
+
+    /**
+     *
+     * @param sc_
+     */
     private static void recherche_(Scanner sc_) {
         Product_ type_ = null;
         int typeInt_ = 0;
@@ -111,7 +115,21 @@ public class Display_ {
         System.out.println("");
     }
 
+
+    /**
+     *
+     * @param sc_
+     */
     private static void modification_(Scanner sc_) {
-        //TODO
+        //TODO implémenter
+    }
+
+
+    /**
+     *
+     * @param sc_
+     */
+    private static void suppression_(Scanner sc_) {
+        //TODO implémenter
     }
 }

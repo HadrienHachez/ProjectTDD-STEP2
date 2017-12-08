@@ -1,4 +1,4 @@
-package beans;
+package be.ecam.gestionAlcohol.beans;
 
 /**
  * Class that create an Alcohol Object with the Builder design pattern.
