@@ -20,10 +20,15 @@ public class Display_ {
      * @param sc_ Scanner for stdin
      */
     private static void menu_(Scanner sc_){
-        int operation_ = 0;
-        System.out.println("Bienvenue dans Votre Cave à Vin \n" +
-                "MENU : [Afficher=1[Ajout=2][Recherche=3][Modification=4][Suppression=5]");
-        operation_ = input_check(sc_,1,5,null);
+        System.out.println("Bienvenue dans Votre Cave à Vin \n"+
+                "1) Afficher     \n" +
+                "2) Ajout        \n" +
+                "3) Recherche    \n" +
+                "4) Modification \n" +
+                "5) Suppression  \n" +
+                "6) Exit");
+        int operation_ = input_check(sc_,1,6,null);
+
         switch (operation_) {
             case 1: // affichage
                 break;
@@ -38,8 +43,8 @@ public class Display_ {
             case 5: // suppression
                 suppression_(sc_);
                 break;
-            default:
-                menu_(sc_);
+            case 6: default: // exit
+                return;
         }
     }
 
@@ -48,7 +53,7 @@ public class Display_ {
      */
     private static void affiche_(Scanner sc_) {
         System.out.println("MENU AFFICHE");
-        for (int i=0;i<5;i++){
+        for (int i = 0; i < 5; i++) {
             System.out.println("TG\n");
         }
     }
