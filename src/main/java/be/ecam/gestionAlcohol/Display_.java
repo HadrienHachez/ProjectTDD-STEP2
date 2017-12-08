@@ -2,6 +2,7 @@ package be.ecam.gestionAlcohol;
 
 import be.ecam.gestionAlcohol.beans.Alcohol_;
 import be.ecam.gestionAlcohol.beans.Product_;
+import be.ecam.gestionAlcohol.databasehelper.DBManagement_;
 
 import java.util.*;
 
@@ -11,15 +12,15 @@ public class Display_ {
      * CLI interface of the project.
      */
     public static void display_() {
-        Scanner sc_ = new Scanner(System.in);
-        menu_(sc_);
+        Context_ ctx_ = new Context_();
+        menu_(ctx_);
     }
 
     /**
      * This function display the menu and direct the user to the selected routine.
-     * @param sc_ Scanner for stdin
+     * @param ctx_ the application context
      */
-    private static void menu_(Scanner sc_){
+    private static void menu_(Context_ ctx_){
         System.out.println("Bienvenue dans Votre Cave à Vin \n"+
                 "1) Afficher     \n" +
                 "2) Ajout        \n" +
@@ -27,69 +28,86 @@ public class Display_ {
                 "4) Modification \n" +
                 "5) Suppression  \n" +
                 "6) Exit");
-        int operation_ = input_check(sc_,1,6,null);
+        int operation_ = input_check(ctx_.sc_,1,6,null);
 
         switch (operation_) {
             case 1: // affichage
                 break;
             case 2: // ajout
+                ajouter_(ctx_);
                 break;
             case 3: // recherche
-                recherche_(sc_);
+                recherche_(ctx_);
                 break;
             case 4: // modification
-                modification_(sc_);
+                modification_(ctx_);
                 break;
             case 5: // suppression
-                suppression_(sc_);
+                suppression_(ctx_);
                 break;
             case 6: default: // exit
                 return;
         }
     }
 
+
     /**
-     * @param sc_ Scanner for stdin
+     *
+     * @param ctx_ the application context
      */
-    private static void affiche_(Scanner sc_) {
+    private static void ajouter_(Context_ ctx_) {
+        System.out.println("=== Ajouter une bouteille ===");
+        Alcohol_ alcohol_ = createAlcoholFromStdin(ctx_);
+
+    }
+
+
+    /**
+     * @param ctx_ the application context
+     */
+    private static void affiche_(Context_ ctx_) {
         System.out.println("MENU AFFICHE");
         for (int i = 0; i < 5; i++) {
             System.out.println("TG\n");
         }
     }
 
+
     /**
-     * @param sc_ Scanner for stdin
+     * @param ctx_ the application context
      */
-    private static void recherche_(Scanner sc_) {
+    private static void recherche_(Context_ ctx_) {
         System.out.println("MENU RECHERCHE\n"+
                 "Si l'élément n'est pas recherché laisser vide.\n"+
                 "Veuillez saisir : ");
-        Alcohol_ alcohol_ = createAlcoholFromStdin(sc_);
+        Alcohol_ alcohol_ = createAlcoholFromStdin(ctx_);
 
         System.out.println(alcohol_);
     }
 
+
     /**
-     * @param sc_ Scanner for stdin
+     * @param ctx_ the application context
      */
-    private static void modification_(Scanner sc_) {
+    private static void modification_(Context_ ctx_) {
         //TODO implémenter
     }
 
+
     /**
-     * @param sc_ Scanner for stdin
+     * @param ctx_ the application context
      */
-    private static void suppression_(Scanner sc_) {
+    private static void suppression_(Context_ ctx_) {
         //TODO implémenter
     }
+
 
     /**
      *
-     * @param sc_ Scanner for stdin
+     * @param ctx_ the application context
      * @return the alcohol instance created
      */
-    private static Alcohol_ createAlcoholFromStdin(Scanner sc_) {
+    private static Alcohol_ createAlcoholFromStdin(Context_ ctx_) {
         Product_ type_   = null;
         int typeInt_     = 0;
         String country_  = "";
@@ -100,24 +118,24 @@ public class Display_ {
 
         try {
             System.out.println("> Type [BEER=1] [WINE=2] [LIQUOR=3]    : ");
-            typeInt_ = sc_.nextInt();
+            typeInt_ = ctx_.sc_.nextInt();
         } catch (InputMismatchException ime) {
             System.out.println("Valeur saisie non numérique\n"
                     + "ou hors des limites int.");
         }
 
         System.out.println("> Country  : ");
-        country_ = sc_.nextLine();
+        country_ = ctx_.sc_.nextLine();
         System.out.println("> Provider : ");
-        provider_ = sc_.nextLine();
+        provider_ = ctx_.sc_.nextLine();
         System.out.println("> Level    : ");
-        level_ = sc_.nextLine();
+        level_ = ctx_.sc_.nextLine();
         System.out.println("> Name     : ");
-        name_ = sc_.nextLine();
+        name_ = ctx_.sc_.nextLine();
 
         try {
             System.out.println("> Year     : ");
-            year_ = sc_.nextInt();
+            year_ = ctx_.sc_.nextInt();
         } catch (InputMismatchException ime) {
             System.out.println("Valeur saisie non numérique\n"
                     + "ou hors des limites int.");
@@ -147,6 +165,7 @@ public class Display_ {
 
         return alcohol_;
     }
+
 
     /**
      * Helper to retrieve an integer from stdin between a lower and upper bound.
