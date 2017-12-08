@@ -11,7 +11,12 @@ public class Context_ {
 
     public Context_() {
         this.sc_ = new Scanner(System.in);
-        this.db_ = new DBManagement_();
+        this.db_ = DBManagement_.getInstance();
+        try {
+            Thread.sleep(1500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 }

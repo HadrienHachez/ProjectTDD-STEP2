@@ -2,7 +2,6 @@ package be.ecam.gestionAlcohol;
 
 import be.ecam.gestionAlcohol.beans.Alcohol_;
 import be.ecam.gestionAlcohol.beans.Product_;
-import be.ecam.gestionAlcohol.databasehelper.DBManagement_;
 
 import java.util.*;
 
@@ -60,7 +59,7 @@ public class Display_ {
     private static void ajouter_(Context_ ctx_) {
         System.out.println("=== Ajouter une bouteille ===");
         Alcohol_ alcohol_ = createAlcoholFromStdin(ctx_);
-
+        ctx_.db_.putAlcohols_(alcohol_);
     }
 
 
