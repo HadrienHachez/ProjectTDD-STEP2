@@ -4,8 +4,8 @@
     <bytecodeTargetLevel>
       <module name="Gestion_Alch_main" target="1.5" />
       <module name="Gestion_Alch_test" target="1.5" />
-      <module name="Gestion_Alchols_main" target="1.7" />
-      <module name="Gestion_Alchols_test" target="1.7" />
+      <module name="Gestion_Alchols_main" target="1.8" />
+      <module name="Gestion_Alchols_test" target="1.8" />
       <module name="TDD_17162_main" target="1.5" />
       <module name="TDD_17162_test" target="1.5" />
     </bytecodeTargetLevel>

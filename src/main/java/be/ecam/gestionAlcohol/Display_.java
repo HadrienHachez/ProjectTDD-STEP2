@@ -55,6 +55,9 @@ public class Display_ {
         System.out.println("MENU RECHERCHE\n"+
                 "Si l'élément n'est pas recherché laisser vide.\n"+
                 "Veuillez saisir : ");
+        Alcohol_ alcohol_ = createAlcoholFromStdin(sc_);
+
+        System.out.println(alcohol_);
     }
     /**
      * @param sc_ Scanner for stdin
@@ -75,7 +78,7 @@ public class Display_ {
      * @param sc_ Scanner for stdin
      * @return the alcohol instance created
      */
-    private static Alcohol_ createAlcohol(Scanner sc_) {
+    private static Alcohol_ createAlcoholFromStdin(Scanner sc_) {
         Product_ type_   = null;
         int typeInt_     = 0;
         String country_  = "";
