@@ -69,6 +69,19 @@ public class Alcohol_ {
         this.year_ = year_;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[")
+            .append(id_).append("][")
+            .append(name_).append("][")
+            .append(provider_).append("][")
+            .append(level_).append("][")
+            .append(country_).append("][")
+            .append(year_).append("]");
+        return sb.toString();
+    }
+
     /** Start of the builder class**/
     public static final class Builder_ {
         private long id_;

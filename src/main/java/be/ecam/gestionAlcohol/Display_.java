@@ -51,12 +51,13 @@ public class Display_ {
      * @param sc_ Scanner for stdin
      */
     private static void recherche_(Scanner sc_) {
-        System.out.println("Recherche.");
-        System.out.println("Si l'élément n'est pas recherché laisser vide.");
-        System.out.println("_________________________________________________________");
+        System.out.println("Recherche:\n"
+            + "Si l'élément n'est pas recherché laisser vide.\n"
+            + "Veuillez saisir :");
 
-        System.out.println("Veuillez saisir : ");
+        Alcohol_ alcohol_ = createAlcoholFromStdin(sc_);
 
+        System.out.println(alcohol_);
     }
 
 
@@ -83,7 +84,7 @@ public class Display_ {
      * @param sc_ Scanner for stdin
      * @return the alcohol instance created
      */
-    private static Alcohol_ createAlcohol(Scanner sc_) {
+    private static Alcohol_ createAlcoholFromStdin(Scanner sc_) {
         Product_ type_   = null;
         int typeInt_     = 0;
         String country_  = "";
