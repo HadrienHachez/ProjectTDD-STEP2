@@ -16,6 +16,7 @@ public class Display_ {
         menu_(ctx_);
     }
 
+
     /**
      * This function display the menu and direct the user to the selected routine.
      * @param ctx_ the application context
@@ -32,7 +33,7 @@ public class Display_ {
 
         switch (operation_) {
             case 1: // affichage
-                affiche_(sc_);
+                affiche_(ctx_);
                 break;
             case 2: // ajout
                 ajouter_(ctx_);
@@ -118,11 +119,11 @@ public class Display_ {
         int year_        = 0;
 
         System.out.println("> Type [BEER=1] [WINE=2] [LIQUOR=3]    : ");
-        typeInt_    = input_check(sc_,0,3,
+        typeInt_    = input_check(ctx_.sc_,0,3,
                 "Valeur saisie non numérique\n ou hors des limites");
         try {
 
-            typeInt_ = sc_.nextInt();
+            typeInt_ = ctx_.sc_.nextInt();
             System.out.println("> Type [BEER=1] [WINE=2] [LIQUOR=3]    : ");
             typeInt_ = ctx_.sc_.nextInt();
         } catch (InputMismatchException ime) {
