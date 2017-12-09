@@ -44,11 +44,13 @@ public class DBManagement_ {
      * @param alcohol_ take an alcohol as a parameter to search it in the database
      */
     public void putAlcohols_(Alcohol_ alcohol_) {
-        Document doc = new Document("name", "MongoDB")
-                .append("provider", alcohol_.getName_())
+        Document doc = new Document()
+                .append("name",     alcohol_.getName_())
+                .append("provider", alcohol_.getProvider_())
                 .append("level",    alcohol_.getLevel_())
                 .append("country",  alcohol_.getCountry_())
-                .append("year",     alcohol_.getYear_());
+                .append("year",     alcohol_.getYear_())
+                .append("type",     alcohol_.getTypeStr_());
         ourCollection_.insertOne(doc);
     }
 
@@ -62,6 +64,15 @@ public class DBManagement_ {
 
 
         return alcohol_;
+    }
+
+    /**
+     * Helper to fill the database easily when parsing a file.
+     * Used in the DBFiller_ class
+     * @param doc_ the bson document
+     */
+    public void putAlcoholsBson_(Document doc_) {
+        ourCollection_.insertOne(doc_);
     }
 
 

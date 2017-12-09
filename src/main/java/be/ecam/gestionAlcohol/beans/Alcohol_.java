@@ -79,6 +79,24 @@ public class Alcohol_ {
         this.type_ = type_;
     }
 
+    public String getTypeStr_() {
+        if (this.type_ == Product_.BEER)
+            return "Bière";
+        if (this.type_ == Product_.LIQUOR)
+            return "Liqueur";
+        else
+            return "Vin";
+    }
+
+    public void setTypeStr_(String type_) {
+        if (type_.equalsIgnoreCase("Bière"))
+            this.type_ = Product_.BEER;
+        else if (type_.equalsIgnoreCase("Liqueur"))
+            this.type_ = Product_.LIQUOR;
+        else
+            this.type_ = Product_.WINE;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
