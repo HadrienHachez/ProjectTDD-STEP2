@@ -11,7 +11,7 @@ public class Display_ {
      * CLI interface of the project.
      */
     public static void display_() {
-        Context_ ctx_ = new Context_();
+        Context_ ctx_ = Context_.getInstance_();
         menu_(ctx_);
     }
 

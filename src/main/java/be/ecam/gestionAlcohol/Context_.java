@@ -9,7 +9,9 @@ public class Context_ {
     public DBManagement_ db_;
     public Scanner sc_;
 
-    public Context_() {
+    private static final Context_ INSTANCE_ = new Context_();
+
+    private Context_() {
         this.sc_ = new Scanner(System.in);
         this.db_ = DBManagement_.getInstance();
         try {
@@ -17,6 +19,10 @@ public class Context_ {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public static Context_ getInstance_() {
+        return INSTANCE_;
     }
 
 }
