@@ -55,14 +55,12 @@ public class DBManagement_ {
     }
 
 
+    /**
+     * @return All alcohol in the database.
+     */
     public Alcohol_[] getAllAlcohol_() {
         Iterable<Document> iterable = ourCollection_.find();
-        Alcohol_[] array = Alcohol_.buildFromDB(iterable);
-
-        for (Alcohol_ x : array)
-            System.out.println(x);
-
-        return array;
+        return Alcohol_.buildFromDB(iterable);
     }
 
 
