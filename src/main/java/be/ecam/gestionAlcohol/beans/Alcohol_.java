@@ -1,11 +1,17 @@
 package be.ecam.gestionAlcohol.beans;
 
+import org.bson.Document;
+import org.bson.types.ObjectId;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
 /**
  * Class that create an Alcohol Object with the Builder design pattern.
  */
 
 public class Alcohol_ {
-     private long id_;
+     private ObjectId id_;
      private String name_;
      private String provider_;
      private String level_;
@@ -13,7 +19,7 @@ public class Alcohol_ {
      private int year_;
      private Product_ type_;
 
-    public Alcohol_ (Builder_ alcoholBuilder_){
+    public Alcohol_(Builder_ alcoholBuilder_){
         this.id_       = alcoholBuilder_.id_;
         this.name_     = alcoholBuilder_.name_;
         this.year_     = alcoholBuilder_.year_;
@@ -23,11 +29,36 @@ public class Alcohol_ {
         this.provider_ = alcoholBuilder_.provider_;
     }
 
-    public long getId_() {
+
+    public static Alcohol_[] buildFromDB(Iterable<Document> iterable) {
+        Iterator<Document> iterator = iterable.iterator();
+        ArrayList<Alcohol_> alcArray_ = new ArrayList<>();
+
+        while (iterator.hasNext()) {
+            Document doc = iterator.next();
+            Alcohol_ alc_ = new Alcohol_.Builder_(
+                    doc.get("Name").toString(), doc.get("Level").toString()).build_();
+            try {
+                alc_.id_   = (ObjectId) doc.get("_id");
+                System.out.println(alc_.id_);
+                alc_.year_ = Integer.parseInt(doc.get("Year").toString());
+            } catch (NumberFormatException e) {
+                e.getStackTrace();
+            }
+            alc_.type_     = convertType_(doc.get("Type").toString());
+            alc_.country_  = doc.get("Country").toString();
+            alc_.provider_ = doc.get("Provider").toString();
+            alcArray_.add(alc_);
+        }
+        System.out.println(alcArray_);
+        return (Alcohol_[]) alcArray_.toArray();
+    }
+
+    public ObjectId getId_() {
         return id_;
     }
 
-    public void setId_(long id_) {
+    public void setId_(ObjectId id_) {
         this.id_ = id_;
     }
 
@@ -97,22 +128,29 @@ public class Alcohol_ {
             this.type_ = Product_.WINE;
     }
 
+    public static Product_ convertType_(String type_) {
+        if (type_.equalsIgnoreCase("Bière"))
+            return Product_.BEER;
+        else if (type_.equalsIgnoreCase("Liqueur"))
+            return Product_.LIQUOR;
+        return Product_.WINE;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("[")
-            .append(id_).append("][")
-            .append(name_).append("][")
-            .append(provider_).append("][")
-            .append(level_).append("][")
-            .append(country_).append("][")
-            .append(year_).append("]");
+        sb.append(id_).append("\n ")
+          .append(name_).append("\n   - ")
+          .append(provider_).append("\n   - ")
+          .append(level_).append("\n   - ")
+          .append(country_).append("\n   - ")
+          .append(year_).append("\n   - ");
         return sb.toString();
     }
 
     // Start of the builder class
     public static final class Builder_ {
-        private long id_         = 0;
+        private ObjectId id_     = null;
         private int year_        = 0;
         private String name_     = "Sans nom";
         private String provider_ = "Sans brasserie";

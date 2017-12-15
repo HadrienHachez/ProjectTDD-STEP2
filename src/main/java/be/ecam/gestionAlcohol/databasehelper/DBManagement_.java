@@ -55,12 +55,20 @@ public class DBManagement_ {
     }
 
 
+    public Alcohol_[] getAllAlcohol_() {
+        Iterable<Document> iterable = ourCollection_.find();
+        Alcohol_[] array = Alcohol_.buildFromDB(iterable);
+
+        return array;
+    }
+
+
     /**
      * Function that allow to find an object to the remote database
      * @param alcohol_ take an alcohol as a parameter to search it in the database
      */
     public Alcohol_ findOneAlcohol_(Alcohol_ alcohol_) {
-
+        ourCollection_.find();
 
 
         return alcohol_;
