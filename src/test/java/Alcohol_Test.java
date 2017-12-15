@@ -1,3 +1,5 @@
+import be.ecam.gestionAlcohol.beans.Alcohol_;
+import org.bson.types.ObjectId;
 import org.junit.Test;
 import org.junit.Before; 
 import org.junit.After; 
@@ -23,8 +25,8 @@ public void after() throws Exception {
 * 
 */ 
 @Test
-public void testGetId_() throws Exception { 
-//TODO: Test goes here... 
+public void testGetId_() throws Exception {
+    //TODO: Test goes here...
 } 
 
 /** 
@@ -43,8 +45,12 @@ public void testSetId_() throws Exception {
 * 
 */ 
 @Test
-public void testGetName_() throws Exception { 
-//TODO: Test goes here... 
+public boolean testGetName_() throws Exception {
+    Alcohol_ alc = new Alcohol_.Builder_("test", "13%").build_();
+    if (alc.getName_() == "test" ) {
+        return(true);
+    }
+    return (false);
 } 
 
 /** 
