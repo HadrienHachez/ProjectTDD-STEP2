@@ -48,9 +48,9 @@ public void testSetId_() throws Exception {
 public boolean testGetName_() throws Exception {
     Alcohol_ alc = new Alcohol_.Builder_("test", "13%").build_();
     if (alc.getName_().equals("test")) {
-        return(false);
+        return(true);
     }
-    return (true);
+    return (false);
 } 
 
 /** 
