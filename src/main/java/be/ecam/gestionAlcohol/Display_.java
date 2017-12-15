@@ -103,8 +103,6 @@ public class Display_ {
             if (hello == "1")
             Arrays.stream(array).filter(p -> Integer.parseInt(p.getLevel_()) > 6);
         }
-
-        System.out.println(alcohol_);
     }
 
 
