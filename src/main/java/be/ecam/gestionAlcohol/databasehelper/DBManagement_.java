@@ -68,9 +68,8 @@ public class DBManagement_ {
      * Function that allow to find an object to the remote database
      * @param alcohol_ take an alcohol as a parameter to search it in the database
      */
-    public Alcohol_ findOneAlcohol_(Alcohol_ alcohol_) {
+    public Alcohol_ findAlcohol_(Alcohol_ alcohol_) {
         ourCollection_.find();
-
 
         return alcohol_;
     }

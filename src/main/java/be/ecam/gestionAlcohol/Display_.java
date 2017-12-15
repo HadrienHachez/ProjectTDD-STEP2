@@ -68,7 +68,9 @@ public class Display_ {
      */
     private static void affiche_(Context_ ctx_) {
         System.out.println("MENU AFFICHE");
-        ctx_.db_.getAllAlcohol_();
+        for (Alcohol_ alc_ : ctx_.db_.getAllAlcohol_()) {
+            System.out.println(alc_);
+        }
     }
 
 
