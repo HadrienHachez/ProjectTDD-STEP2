@@ -78,10 +78,31 @@ public class Display_ {
      * @param ctx_ the application context
      */
     private static void recherche_(Context_ ctx_) {
-        System.out.println("MENU RECHERCHE\n"+
-                "Si l'élément n'est pas recherché laisser vide.\n"+
-                "Veuillez saisir : ");
-        Alcohol_ alcohol_ = createAlcoholFromStdin(ctx_);
+        System.out.println("MENU RECHERCHE\n");
+        Alcohol_[] array = ctx_.db_.getAllAlcohol_();
+        int i = 1;
+        while (i==1){
+            ArrayList<Integer> param=new ArrayList<Integer>();
+            param.add(1);param.add(2);param.add(3);
+            param.add(4);param.add(5);param.add(6);
+            System.out.println(" Critères restants possibles :");
+            if (param.contains(1))
+                System.out.println(" [1] : Nom");
+            if (param.contains(2))
+                System.out.println(" [2] : Année");
+            if (param.contains(3))
+                System.out.println(" [3] : Fournisseur");
+            if (param.contains(4))
+                System.out.println(" [4] : Taux d'alcool");
+            if (param.contains(5))
+                System.out.println(" [5] : Pays");
+            if (param.contains(6))
+                System.out.println(" [6] : Types");
+            System.out.println("Sur quelle critère voulez vous cherchez ?");
+            String hello = ctx_.sc_.nextLine();
+            if (hello == "1")
+            Arrays.stream(array).filter(p -> Integer.parseInt(p.getLevel_()) > 6);
+        }
 
         System.out.println(alcohol_);
     }

@@ -9,6 +9,8 @@ import com.mongodb.client.MongoDatabase;
 
 import org.bson.Document;
 
+import java.util.Scanner;
+
 /**
  * implementation du design pattern Singeleton pour l'instance de base de donnée.
  */
@@ -60,9 +62,9 @@ public class DBManagement_ {
      */
     public Alcohol_[] getAllAlcohol_() {
         Iterable<Document> iterable = ourCollection_.find();
+        Alcohol_[] array = Alcohol_.buildFromDB(iterable);
         return Alcohol_.buildFromDB(iterable);
     }
-
 
     /**
      * Function that allow to find an object to the remote database
@@ -82,6 +84,4 @@ public class DBManagement_ {
     public void putAlcoholsBson_(Document doc_) {
         ourCollection_.insertOne(doc_);
     }
-
-
 }
