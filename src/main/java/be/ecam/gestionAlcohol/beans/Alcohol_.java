@@ -40,7 +40,6 @@ public class Alcohol_ {
                     doc.get("Name").toString(), doc.get("Level").toString()).build_();
             try {
                 alc_.id_   = (ObjectId) doc.get("_id");
-                System.out.println(alc_.id_);
                 alc_.year_ = Integer.parseInt(doc.get("Year").toString());
             } catch (NumberFormatException e) {
                 e.getStackTrace();
@@ -50,8 +49,11 @@ public class Alcohol_ {
             alc_.provider_ = doc.get("Provider").toString();
             alcArray_.add(alc_);
         }
-        System.out.println(alcArray_);
-        return (Alcohol_[]) alcArray_.toArray();
+
+        Alcohol_[] toReturn = new Alcohol_[alcArray_.size()];
+        for (int i = 0; i < alcArray_.size(); i++)
+            toReturn[i] = alcArray_.get(i);
+        return toReturn;
     }
 
     public ObjectId getId_() {
@@ -139,12 +141,12 @@ public class Alcohol_ {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(id_).append("\n ")
-          .append(name_).append("\n   - ")
-          .append(provider_).append("\n   - ")
-          .append(level_).append("\n   - ")
-          .append(country_).append("\n   - ")
-          .append(year_).append("\n   - ");
+        sb.append(id_).append("\n")
+          .append(name_).append("\n")
+          .append(provider_).append("\n")
+          .append(level_).append("\n")
+          .append(country_).append("\n")
+          .append(year_).append("\n");
         return sb.toString();
     }
 

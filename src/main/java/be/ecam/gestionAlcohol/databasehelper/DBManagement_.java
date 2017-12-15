@@ -59,6 +59,9 @@ public class DBManagement_ {
         Iterable<Document> iterable = ourCollection_.find();
         Alcohol_[] array = Alcohol_.buildFromDB(iterable);
 
+        for (Alcohol_ x : array)
+            System.out.println(x);
+
         return array;
     }
 
