@@ -48,9 +48,9 @@ public void testSetId_() throws Exception {
 */ 
 @Test
 public void testGetName_() throws Exception {
-    assertEquals(2, 2);
-    //Alcohol_ alc = new Alcohol_.Builder_("test", "13%").build_();
-    //assertEquals(alc.getName_(), "test");
+    //assertEquals(2, 2);
+    Alcohol_ alc = new Alcohol_.Builder_("test", "13%").build_();
+    assertEquals(alc.getName_(), "test");
 } 
 
 /** 
