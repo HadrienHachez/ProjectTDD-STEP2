@@ -10,13 +10,15 @@ import static org.junit.Assert.assertEquals;
 * Alcohol_ Tester. 
 * 
 * @author <Team 4>
-*/ 
+*/
+
 public class Alcohol_Test {
 
-    Alcohol_ alc = new Alcohol_.Builder_("test", "13%").build_();
+Alcohol_ alc;
 
 @Before
-public void before() throws Exception { 
+public void before() throws Exception {
+    alc = new Alcohol_.Builder_("test", "13%").build_();
 } 
 
 @After
