@@ -11,7 +11,9 @@ import static org.junit.Assert.assertEquals;
 * 
 * @author <Team 4>
 */ 
-public class Alcohol_Test { 
+public class Alcohol_Test {
+
+    Alcohol_ alc = new Alcohol_.Builder_("test", "13%").build_();
 
 @Before
 public void before() throws Exception { 
@@ -49,7 +51,6 @@ public void testSetId_() throws Exception {
 @Test
 public void testGetName_() throws Exception {
     //assertEquals(2, 2);
-    Alcohol_ alc = new Alcohol_.Builder_("test", "13%").build_();
     assertEquals(alc.getName_(), "test");
 } 
 
@@ -89,8 +90,8 @@ public void testSetProvider_() throws Exception {
 * 
 */ 
 @Test
-public void testGetLevel_() throws Exception { 
-//TODO: Test goes here... 
+public void testGetLevel_() throws Exception {
+    assertEquals(alc.getLevel_(), "13%");
 } 
 
 /** 
@@ -116,7 +117,7 @@ public void testGetCountry_() throws Exception {
 /** 
 * 
 * Method: setCountry_(String country_) 
-* 
+*
 */ 
 @Test
 public void testSetCountry_() throws Exception { 
