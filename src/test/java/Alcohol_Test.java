@@ -93,7 +93,7 @@ public void testSetProvider_() throws Exception {
 */ 
 @Test
 public void testGetLevel_() throws Exception {
-    assertEquals(alc.getLevel_(), "14%");
+    assertEquals(alc.getLevel_(), "13%");
 } 
 
 /** 
